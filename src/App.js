@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./App.css";
-import { MoviesContextProvider } from "./AppContext";
+import { MoviesContext } from "./AppContext";
 
 import MovieSearch from "./MovieSearch";
 import Movies from "./Movies";
 import SelectedMovie from "./SelectedMovie";
 
 function App() {
+  const { appState, setScrollLock } = useContext(MoviesContext);
+
+  useEffect(() => {
+    appState !== 0 ? setScrollLock(true) : setScrollLock(false);
+  }, [appState, setScrollLock]);
+
   return (
-    <MoviesContextProvider>
-      <div className="App">
-        {/* <MovieSearch /> */}
-        <Movies />
-        <SelectedMovie />
-      </div>
-    </MoviesContextProvider>
+    <div className="App">
+      <Movies />
+      {appState === 2 && <SelectedMovie />}
+    </div>
   );
 }
 
