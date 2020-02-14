@@ -56,7 +56,7 @@ export const MoviesContextProvider = ({ children }) => {
   const fetchMovieDataByMovieId = id => {
     setIsLoading(true);
     fetch(
-      `http://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos`
     )
       .then(response => response.json())
       .then(data => {
