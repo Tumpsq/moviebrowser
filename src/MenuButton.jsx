@@ -20,7 +20,8 @@ const MenuButton = ({ isMenuOpen, setIsMenuOpen }) => {
     boxShadow: "0px 0px 7px 1px rgba(0, 0, 0, 0.83)",
     transition: "0.5s",
     transform: isMenuOpen ? "translateX(200px)" : "translateX(0px)",
-    backgroundColor: "rgba(0, 0, 0, 0.829)"
+    backgroundColor: "rgba(0, 0, 0, 0.829)",
+    WebkitTapHighlightColor: "transparent"
   };
 
   const barStyles = {

@@ -3,10 +3,19 @@ import { MoviesContext } from "./AppContext";
 import { ReactComponent as Close } from "./Assets/CloseIcon.svg";
 //import { ReactComponent as Back } from "./Assets/BackIcon.svg";
 import Movie from "./Movie";
+//import YoutubePlayer from "./YoutubePlayer";
+import YouTube from "react-youtube";
 
 const SelectedMovie = () => {
-  const { setAppState, selectedMovie } = useContext(MoviesContext);
+  const {
+    isLoading,
+    setIsLoading,
+    appState,
+    setAppState,
+    selectedMovie
+  } = useContext(MoviesContext);
   const [genres, setGenres] = useState([]);
+  const [ytPlayer, setYtPlayer] = useState(null);
 
   useEffect(() => {
     const movieGenres = [];
@@ -17,11 +26,29 @@ const SelectedMovie = () => {
     setGenres(movieGenres);
   }, [selectedMovie]);
 
-  console.log(selectedMovie);
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1
+    }
+  };
+
+  const onPlayerReady = ytPlayer => {
+    ytPlayer.playVideo();
+    setYtPlayer(ytPlayer);
+  };
 
   return (
     <div className="SelectedMovie">
-      <button className="CloseSelectedMovieBtn" onClick={() => setAppState(0)}>
+      <button
+        className="CloseSelectedMovieBtn"
+        onClick={() => {
+          setAppState(0);
+          ytPlayer.pauseVideo();
+        }}
+      >
         <Close />
       </button>
 
@@ -31,11 +58,13 @@ const SelectedMovie = () => {
           selectedMovie &&
           `http://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
         }
-        //onLoad={() => setLoadingImage(false)}
+        onLoad={() => {
+          setIsLoading(false);
+        }}
         alt=""
       />
       <div className="SelectedMovieTrailer">
-        <iframe
+        {/* <iframe
           title="trailer"
           className="player"
           id="ytplayer"
@@ -46,11 +75,20 @@ const SelectedMovie = () => {
           src={
             selectedMovie &&
             selectedMovie.videos.results[0].site === "YouTube" &&
-            `https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}?autoplay=1&controls=0`
+            `https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}?autoplay=1&controls=1`
           }
           frameBorder="0"
           allowFullScreen
           allow="autoplay"
+        /> */}
+        {selectedMovie &&
+          selectedMovie.videos.results[0].site === "YouTube" && (
+            <YouTube
+              videoId={selectedMovie.videos.results[0].key}
+              opts={opts}
+              onReady={event => onPlayerReady(event.target)}
+            />
+          )}
         />
       </div>
       <div className="SelectedMovieDetails">

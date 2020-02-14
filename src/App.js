@@ -7,7 +7,11 @@ import Movies from "./Movies";
 import SelectedMovie from "./SelectedMovie";
 
 function App() {
-  const { appState, setScrollLock } = useContext(MoviesContext);
+  const { isLoading, appState, setScrollLock } = useContext(MoviesContext);
+
+  window["onYouTubeIframeAPIReady"] = e => {
+    console.log("RDYYY");
+  };
 
   useEffect(() => {
     appState !== 0 ? setScrollLock(true) : setScrollLock(false);
@@ -16,7 +20,16 @@ function App() {
   return (
     <div className="App">
       <Movies />
-      {appState === 2 && <SelectedMovie />}
+      <div
+        className="SelectedMovieContent"
+        style={
+          appState === 2 && isLoading === false
+            ? { opacity: "1", transform: "translateX(0%)" }
+            : { opacity: "0", transform: "translateX(100%)" }
+        }
+      >
+        <SelectedMovie />
+      </div>
     </div>
   );
 }
