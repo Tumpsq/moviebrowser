@@ -176,6 +176,11 @@ body {
   width: 100%;
   top: 50px;
 }
+
+.ytPlayer {
+  min-height: 40vh;
+  height: 100%;
+}
 /* .player {
   position: absolute;
   top: 0;

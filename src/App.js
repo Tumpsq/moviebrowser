@@ -9,10 +9,6 @@ import SelectedMovie from "./SelectedMovie";
 function App() {
   const { isLoading, appState, setScrollLock } = useContext(MoviesContext);
 
-  window["onYouTubeIframeAPIReady"] = e => {
-    console.log("RDYYY");
-  };
-
   useEffect(() => {
     appState !== 0 ? setScrollLock(true) : setScrollLock(false);
   }, [appState, setScrollLock]);

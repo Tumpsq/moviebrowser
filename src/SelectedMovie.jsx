@@ -27,8 +27,8 @@ const SelectedMovie = () => {
   }, [selectedMovie]);
 
   const opts = {
-    height: "390",
-    width: "640",
+    width: "100%",
+    height: "56.25%",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1
@@ -84,6 +84,7 @@ const SelectedMovie = () => {
         {selectedMovie &&
           selectedMovie.videos.results[0].site === "YouTube" && (
             <YouTube
+              className="ytPlayer"
               videoId={selectedMovie.videos.results[0].key}
               opts={opts}
               onReady={event => onPlayerReady(event.target)}
