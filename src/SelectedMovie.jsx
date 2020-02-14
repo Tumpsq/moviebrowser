@@ -56,7 +56,7 @@ const SelectedMovie = () => {
         className="SelectedMovieBackdrop"
         src={
           selectedMovie &&
-          `http://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
+          `https://image.tmdb.org/t/p/original${selectedMovie.backdrop_path}`
         }
         onLoad={() => {
           setIsLoading(false);

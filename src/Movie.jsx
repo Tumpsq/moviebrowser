@@ -4,7 +4,7 @@ import LoadingIndicator from "./LoadingIndicator";
 
 const Movie = ({ movie }) => {
   const [loadingImage, setLoadingImage] = useState(true);
-  const MoviePosterUrl = `http://image.tmdb.org/t/p/w300${movie.poster_path}`;
+  const MoviePosterUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
 
   const { fetchMovieDataByMovieId, setAppState } = useContext(MoviesContext);
 
