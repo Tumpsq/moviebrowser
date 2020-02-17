@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./App.css";
 import { MoviesContext } from "./AppContext";
 
-import MovieSearch from "./MovieSearch";
 import Movies from "./Movies";
 import SelectedMovie from "./SelectedMovie";
 

@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## App for browsing movies
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
+- Moviebrowser uses The Movie Database [(TMBd)](https://www.themoviedb.org/) as backend for movie data.<br />
+- App uses [Hooks](https://reactjs.org/docs/hooks-overview.html)<br />
+- App is hosted in [Netlify](https://vigorous-varahamihira-ccd480.netlify.com/)<br />
 
 ## Available Scripts
 
