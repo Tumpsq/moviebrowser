@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { MoviesContext } from "../AppContext";
-import LoadingIndicator from "../components/LoadingIndicator";
+import LoadingIndicator from "./LoadingIndicator";
 
 const Movie = ({ movie }) => {
   const [loadingImage, setLoadingImage] = useState(true);
