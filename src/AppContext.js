@@ -13,7 +13,6 @@ export const MoviesContextProvider = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showMovieDetailsPage, setShowMovieDetailsPage] = useState(null);
   const [appState, setAppState] = useState(0);
-  // const [appEvent, setAppEvent] = useState([]);
 
   const setScrollLock = state => {
     state === true
@@ -86,9 +85,6 @@ export const MoviesContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchMoviesDataBy("popularity");
-    // fetchMoviesData(
-    //   "https://api.themoviedb.org/3/discover/movie?api_key=af8fb362bff12729caaa23a58ff0e1fc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1"
-    // );
   }, []);
 
   const selectMovieById = id => {

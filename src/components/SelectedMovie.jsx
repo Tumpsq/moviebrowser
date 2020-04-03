@@ -1,19 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { MoviesContext } from "./AppContext";
-import { ReactComponent as Close } from "./Assets/CloseIcon.svg";
-//import { ReactComponent as Back } from "./Assets/BackIcon.svg";
-import Movie from "./Movie";
-//import YoutubePlayer from "./YoutubePlayer";
+import { MoviesContext } from "../AppContext";
+import { ReactComponent as Close } from "../assets/CloseIcon.svg";
 import YouTube from "react-youtube";
 
 const SelectedMovie = () => {
-  const {
-    isLoading,
-    setIsLoading,
-    appState,
-    setAppState,
-    selectedMovie
-  } = useContext(MoviesContext);
+  const { setIsLoading, setAppState, selectedMovie } = useContext(
+    MoviesContext
+  );
   const [genres, setGenres] = useState([]);
   const [ytPlayer, setYtPlayer] = useState(null);
 
@@ -30,7 +23,6 @@ const SelectedMovie = () => {
     width: "100%",
     height: "56.25%",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1
     }
   };
@@ -64,23 +56,6 @@ const SelectedMovie = () => {
         alt=""
       />
       <div className="SelectedMovieTrailer">
-        {/* <iframe
-          title="trailer"
-          className="player"
-          id="ytplayer"
-          type="text/html"
-          width="100%"
-          height="100%"
-          //src="https://www.youtube.com/embed/YqNYrYUiMfg?autoplay=1&controls=0"
-          src={
-            selectedMovie &&
-            selectedMovie.videos.results[0].site === "YouTube" &&
-            `https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}?autoplay=1&controls=1`
-          }
-          frameBorder="0"
-          allowFullScreen
-          allow="autoplay"
-        /> */}
         {selectedMovie &&
           selectedMovie.videos.results[0].site === "YouTube" && (
             <YouTube

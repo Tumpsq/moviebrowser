@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from "react";
 import "./App.css";
 import { MoviesContext } from "./AppContext";
 
-import Movies from "./Movies";
-import SelectedMovie from "./SelectedMovie";
+import Movies from "./components/Movies";
+import SelectedMovie from "./components/SelectedMovie";
 
 function App() {
   const { isLoading, appState, setScrollLock } = useContext(MoviesContext);

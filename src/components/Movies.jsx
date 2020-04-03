@@ -1,11 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
-import { MoviesContext } from "./AppContext";
-import Movie from "./Movie.jsx";
-import MenuButton from "./MenuButton.jsx";
+import { MoviesContext } from "../AppContext";
+import Movie from "./Movie";
+import MenuButton from "./MenuButton";
 
 const Movies = () => {
   const {
-    appState,
     setScrollLock,
     selectedSortingMethod,
     setSelectedSortingMethod,
