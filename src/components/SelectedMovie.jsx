@@ -12,10 +12,11 @@ const SelectedMovie = () => {
 
   useEffect(() => {
     const movieGenres = [];
-    selectedMovie &&
-      selectedMovie.genres.map(element => {
-        movieGenres.push(element.name);
-      });
+    if (selectedMovie) {
+      for (let i = 0; i < selectedMovie.genres.length; i++) {
+        movieGenres.push(selectedMovie.genres[i]);
+      }
+    }
     setGenres(movieGenres);
   }, [selectedMovie]);
 
