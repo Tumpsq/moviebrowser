@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MoviesContext } from "../AppContext";
-import { ReactComponent as Close } from "../assets/CloseIcon.svg";
+import { ReactComponent as Close } from "../Assets/CloseIcon.svg";
 import YouTube from "react-youtube";
 
 const SelectedMovie = () => {

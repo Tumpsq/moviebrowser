@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Loader } from "../assets/Loader.svg";
+import { ReactComponent as Loader } from "../Assets/Loader.svg";
 
 const LoadingIndicator = () => {
   return (
